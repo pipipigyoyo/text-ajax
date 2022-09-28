@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <!--   <script src="./Promise.js"></script> -->
+  </head>
+
+  <body>
+    <script>
+      console.log(111);
+      setTimeout(() => {
+        console.log(222);
+      });
+
+      async function fn1() {
+        let result = await new Promise((resolve)=>{resolve()}).then(()=>{
+          return 777
+        })
+        console.log(result);
+        console.log(333);
+      }
+
+      new Promise((resolve) => {
+        console.log(666);
+        resolve();
+      }).then((vul) => {
+        console.log(444);
+      });
+      fn1();
+      console.log(555);
+
+      //111 666 555 444 777 333 222
+    </script>
+  </body>
+</html>
